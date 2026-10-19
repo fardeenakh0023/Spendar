@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spendar – personal expense tracker</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <section class="hero">
+    <h1>Know where every rupee goes.</h1>
+    <p>Spendar keeps your expenses, categories and spending history in one place, with weekly, monthly and yearly summaries you can trust.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="register.html">Create a free account</a>
+      <a class="btn btn-ghost" href="login.html">Log in</a>
+    </div>
+  </section>
+  <section class="features">
+    <div class="card"><h3>Log in seconds</h3><p>Add an expense with an amount, category and date. Edit or delete it any time.</p></div>
+    <div class="card"><h3>Your own categories</h3><p>Start with sensible defaults, then rename or add the ones that fit your life.</p></div>
+    <div class="card"><h3>Clear summaries</h3><p>See totals and a category chart for any week, month, year or custom range.</p></div>
+  </section>
+  <script type="module">
+    import { renderHeader } from './js/ui.js';
+    renderHeader();
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Categories – Spendar</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="container">
+    <div class="page-head"><div><h1>Categories</h1><p class="muted">Group your spending your way.</p></div></div>
+    <div class="grid-2">
+      <form id="categoryForm" class="card" novalidate>
+        <h2>New category</h2>
+        <div id="formError" class="form-error hidden" role="alert"></div>
+        <div class="field"><label for="name">Name</label>
+          <input id="name" name="name" maxlength="50" placeholder="e.g. Gym" required></div>
+        <button type="submit" class="btn btn-primary" style="width:100%">Add category</button>
+        <p class="hint" style="margin-top:12px">A category that still has expenses cannot be deleted. Move or delete those expenses first.</p>
+      </form>
+      <div class="card">
+        <h2>Your categories</h2>
+        <div id="tableWrap" class="table-wrap"><table><tbody id="tableBody"></tbody></table></div>
+        <div id="emptyState" class="empty hidden"><strong>No categories</strong>Create one to start tracking.</div>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="js/categories.js"></script>
+</body>
+</html>

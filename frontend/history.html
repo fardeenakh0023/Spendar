@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>History – Spendar</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="container">
+    <div class="page-head"><div><h1>History</h1><p class="muted">Review past spending by period.</p></div></div>
+    <div class="card" style="margin-bottom:20px">
+      <div class="custom-range" style="margin:0">
+        <div class="field"><label for="period">Period</label>
+          <select id="period"><option value="week">Week</option><option value="month" selected>Month</option>
+            <option value="year">Year</option><option value="custom">Custom range</option></select></div>
+        <div class="field" id="refField"><label for="refDate">Any date in the period</label><input type="date" id="refDate"></div>
+        <div id="customFields" class="custom-range hidden" style="margin:0">
+          <div class="field"><label for="startDate">From</label><input type="date" id="startDate"></div>
+          <div class="field"><label for="endDate">To</label><input type="date" id="endDate"></div>
+          <button id="applyRange" class="btn btn-primary">Show range</button>
+        </div>
+      </div>
+    </div>
+    <section class="stats" style="grid-template-columns:repeat(3,1fr)">
+      <div class="stat"><div class="label">Period</div><div class="value" id="rangeLabel" style="font-size:1.05rem">–</div></div>
+      <div class="stat primary"><div class="label">Total spent</div><div class="value" id="totalSpent">–</div></div>
+      <div class="stat"><div class="label">Expenses</div><div class="value" id="expenseCount">–</div></div>
+    </section>
+    <div class="card">
+      <div id="tableWrap" class="table-wrap">
+        <table><thead><tr><th>Date</th><th>Description</th><th>Category</th><th class="num">Amount</th></tr></thead>
+        <tbody id="tableBody"></tbody></table>
+      </div>
+      <div id="emptyState" class="empty hidden"><strong>No expenses in this period</strong>Try another week, month or year.</div>
+      <div class="pagination"><span id="pageInfo" class="muted"></span>
+        <span><button id="prevPage" class="btn btn-ghost btn-sm">Previous</button>
+              <button id="nextPage" class="btn btn-ghost btn-sm">Next</button></span></div>
+    </div>
+  </main>
+  <script type="module" src="js/history.js"></script>
+</body>
+</html>

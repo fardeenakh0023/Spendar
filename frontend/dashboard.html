@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard – Spendar</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="container">
+    <div class="page-head">
+      <div><h1>Dashboard</h1><p class="muted">Your spending at a glance.</p></div>
+      <a class="btn btn-primary" href="expenses.html">Add expense</a>
+    </div>
+
+    <div class="period-bar">
+      <div class="tabs" role="group" aria-label="Period">
+        <button class="tab" data-period="week">Weekly</button>
+        <button class="tab active" data-period="month">Monthly</button>
+        <button class="tab" data-period="year">Yearly</button>
+        <button class="tab" data-period="custom">Custom</button>
+      </div>
+      <div class="range-nav" id="rangeNav">
+        <button id="prevBtn" class="icon-btn" aria-label="Previous period">‹</button>
+        <span id="rangeLabel" class="range-label"></span>
+        <button id="nextBtn" class="icon-btn" aria-label="Next period">›</button>
+      </div>
+    </div>
+    <div id="customRange" class="custom-range hidden">
+      <div class="field"><label for="startDate">From</label><input type="date" id="startDate"></div>
+      <div class="field"><label for="endDate">To</label><input type="date" id="endDate"></div>
+      <button id="applyRange" class="btn btn-primary">Show range</button>
+    </div>
+    <p id="statsLoading" class="muted hidden"><span class="spinner"></span> Loading…</p>
+
+    <section class="stats" aria-label="Summary">
+      <div class="stat primary"><div class="label">Total spending</div><div class="value" id="statTotal">–</div></div>
+      <div class="stat"><div class="label">Expenses</div><div class="value" id="statCount">–</div></div>
+      <div class="stat"><div class="label">Average per day</div><div class="value" id="statAvg">–</div></div>
+      <div class="stat"><div class="label">Top category</div><div class="value" id="statTop">–</div></div>
+    </section>
+
+    <section class="dash-grid">
+      <div class="card">
+        <h2>Spending by category</h2>
+        <div class="chart-box">
+          <canvas id="categoryChart" aria-label="Spending by category chart" role="img"></canvas>
+          <div id="chartEmpty" class="empty hidden"><strong>Nothing to chart yet</strong>No expenses in this period.</div>
+        </div>
+      </div>
+      <div class="card"><h2>Category breakdown</h2><div id="categoryList"></div></div>
+    </section>
+  </main>
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Expenses – Spendar</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="container">
+    <div class="page-head"><div><h1>Expenses</h1><p class="muted">Add, edit and remove your expenses.</p></div></div>
+    <div class="grid-2">
+      <form id="expenseForm" class="card" novalidate>
+        <h2 id="formTitle">Add expense</h2>
+        <div id="formError" class="form-error hidden" role="alert"></div>
+        <div class="field"><label for="description">Description</label>
+          <input id="description" name="description" maxlength="255" placeholder="e.g. Lunch at canteen" required></div>
+        <div class="field"><label for="amount">Amount (₹)</label>
+          <input id="amount" name="amount" type="number" inputmode="decimal" step="0.01" min="0.01" required></div>
+        <div class="field"><label for="category_id">Category</label>
+          <select id="category_id" name="category_id" required></select></div>
+        <div class="field"><label for="expense_date">Date</label>
+          <input id="expense_date" name="expense_date" type="date" required></div>
+        <button type="submit" class="btn btn-primary" style="width:100%">Add expense</button>
+        <button type="button" id="cancelEdit" class="btn btn-ghost hidden" style="width:100%;margin-top:8px">Cancel edit</button>
+      </form>
+
+      <div class="card">
+        <div class="page-head" style="margin-bottom:12px">
+          <h2 style="margin:0">Your expenses</h2>
+          <select id="filterCategory" style="width:auto" aria-label="Filter by category"></select>
+        </div>
+        <div id="tableWrap" class="table-wrap">
+          <table>
+            <thead><tr><th>Description</th><th class="num">Amount</th><th>Category</th><th>Date</th><th></th></tr></thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+        <div id="emptyState" class="empty hidden"><strong>No expenses yet</strong>Use the form to add your first one.</div>
+        <div class="pagination">
+          <span id="pageInfo" class="muted"></span>
+          <span><button id="prevPage" class="btn btn-ghost btn-sm">Previous</button>
+                <button id="nextPage" class="btn btn-ghost btn-sm">Next</button></span>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="js/expenses.js"></script>
+</body>
+</html>

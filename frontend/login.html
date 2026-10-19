@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log in – Spendar</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="auth-wrap">
+    <form id="loginForm" class="card auth-card" novalidate>
+      <h1>Welcome back</h1>
+      <p class="muted">Log in to see your expenses.</p>
+      <div id="formError" class="form-error hidden" role="alert"></div>
+      <div class="field"><label for="identifier">Username or email</label>
+        <input id="identifier" name="identifier" autocomplete="username" required></div>
+      <div class="field"><label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required></div>
+      <button type="submit" class="btn btn-primary">Log in</button>
+      <p class="auth-foot">New to Spendar? <a href="register.html">Create an account</a></p>
+    </form>
+  </main>
+  <script type="module">
+    import { initLogin } from './js/auth.js';
+    initLogin();
+  </script>
+</body>
+</html>
